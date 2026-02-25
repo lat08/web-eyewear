@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 const slides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1606761609459-0e5e383ed62d?w=1600&q=80",
+    image: "https://cdn.kinhmatlily.com/lily01/2022/3/z3210171305314_071225dc9171bf082e53f59cef63dda5%20(1)-1647397061000.jpeg",
     title: "Bộ Sưu Tập Mới 2024",
     subtitle: "Kính Râm Premium",
     description: "Những thiết kế độc đáo, chất lượng vượt trội",
@@ -22,7 +22,7 @@ const slides = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1577805942062-25d7889a489d?w=1600&q=80",
+    image: "https://cdn.kinhmatlily.com/lily01/2026/1/[Lily]%20Cover%20web%20(1920%20x%20460%20px)%20(2)-1769855604000.jpeg",
     title: "Giảm Giá Đến 50%",
     subtitle: "Kính Cận Cao Cấp",
     description: "Mua kính mắt chính hãng với giá ưu đãi",
@@ -32,7 +32,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1606761609477-2e17d414e2a3?w=1600&q=80",
+    image: "https://www.gentlemansgazette.com/wp-content/uploads/2016/08/Classic-RayBan-Aviator-Sunglasses-1500x878.jpg",
     title: "Kính Mắt Thời Trang",
     subtitle: "Đầu Tư Phong Cách",
     description: "Những mẫu kính hot trend được yêu thích nhất",
