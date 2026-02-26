@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 const slides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1606761609459-0e5e383ed62d?w=1600&q=80",
+    image: "/images/1.jpg",
     title: "Bộ Sưu Tập Mới 2024",
     subtitle: "Kính Râm Premium",
     description: "Những thiết kế độc đáo, chất lượng vượt trội",
@@ -22,7 +22,7 @@ const slides = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1577805942062-25d7889a489d?w=1600&q=80",
+    image: "/images/2.jpg",
     title: "Giảm Giá Đến 50%",
     subtitle: "Kính Cận Cao Cấp",
     description: "Mua kính mắt chính hãng với giá ưu đãi",
@@ -32,7 +32,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1606761609477-2e17d414e2a3?w=1600&q=80",
+    image: "/images/4.jpg",
     title: "Kính Mắt Thời Trang",
     subtitle: "Đầu Tư Phong Cách",
     description: "Những mẫu kính hot trend được yêu thích nhất",

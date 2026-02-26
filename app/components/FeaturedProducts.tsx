@@ -16,28 +16,28 @@ const products: Product[] = [
     id: 1,
     name: 'KÍNH RÂM LILY 6035',
     price: 230000,
-    image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop',
+    image: '/images/1.jpg',
     colors: ['#000000']
   },
   {
     id: 2,
     name: 'KÍNH NHỰA LILY KANE 21151',
     price: 490000,
-    image: 'https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=400&h=400&fit=crop',
+    image: '/images/2.jpg',
     colors: ['#000000', '#8B4513', '#000000', '#FFC0CB', '#808080']
   },
   {
     id: 3,
     name: 'KÍNH RÂM LILY P20329',
     price: 250000,
-    image: 'https://images.unsplash.com/photo-1586717791821-3f44a5638d46?w=400&h=400&fit=crop',
+    image: '/images/3.jfif',
     colors: ['#FFC0CB', '#800000', '#000000']
   },
   {
     id: 4,
     name: 'KÍNH NHỰA LILY 21027',
     price: 145000,
-    image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop',
+    image: '/images/4.jpg',
     colors: ['#000000', '#FFD700']
   }
 ];
@@ -113,38 +113,73 @@ export default function FeaturedProducts() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div className="relative aspect-square overflow-hidden rounded-lg group">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12">
+          {/* Danh mục 1 */}
+          <div className="relative aspect-[4/3] sm:aspect-square overflow-hidden rounded-2xl group cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-500">
             <Image
-              src="https://kinhmatlily.com/images/home/msg5192635164-180486.jpg"
-              alt="Danh mục sản phẩm 1"
+              src="/images/1.jpg"
+              alt="Gọng Kính Nữ"
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90" />
+            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-10 transition-transform duration-500 group-hover:-translate-y-2">
+              <h3 className="text-white text-2xl md:text-3xl font-bold tracking-wide drop-shadow-lg uppercase">
+                Gọng Kính Nữ
+              </h3>
+              <div className="w-12 h-1.5 bg-yellow-400 mt-3 rounded-full transform origin-left transition-all duration-300 group-hover:w-24 shadow-sm" />
+            </div>
           </div>
-          <div className="relative aspect-square overflow-hidden rounded-lg group">
+
+          {/* Danh mục 2 */}
+          <div className="relative aspect-[4/3] sm:aspect-square overflow-hidden rounded-2xl group cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-500">
             <Image
-              src="https://kinhmatlily.com/images/home/msg5192635164-180487.jpg"
-              alt="Danh mục sản phẩm 2"
+              src="/images/2.jpg"
+              alt="Gọng Kính Nam"
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90" />
+            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-10 transition-transform duration-500 group-hover:-translate-y-2">
+              <h3 className="text-white text-2xl md:text-3xl font-bold tracking-wide drop-shadow-lg uppercase">
+                Gọng Kính Nam
+              </h3>
+              <div className="w-12 h-1.5 bg-yellow-400 mt-3 rounded-full transform origin-left transition-all duration-300 group-hover:w-24 shadow-sm" />
+            </div>
           </div>
-          <div className="relative aspect-square overflow-hidden rounded-lg group">
+
+          {/* Danh mục 3 */}
+          <div className="relative aspect-[4/3] sm:aspect-square overflow-hidden rounded-2xl group cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-500">
             <Image
-              src="https://kinhmatlily.com/images/home/868d6f1a-b8d2-4be2-a328-80aa96a543d1.jfif"
-              alt="Danh mục sản phẩm 3"
+              src="/images/3.jfif"
+              alt="Kính Râm Thời Trang"
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90" />
+            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-10 transition-transform duration-500 group-hover:-translate-y-2">
+              <h3 className="text-white text-2xl md:text-3xl font-bold tracking-wide drop-shadow-lg uppercase">
+                Kính Râm
+              </h3>
+              <div className="w-12 h-1.5 bg-yellow-400 mt-3 rounded-full transform origin-left transition-all duration-300 group-hover:w-24 shadow-sm" />
+            </div>
           </div>
-          <div className="relative aspect-square overflow-hidden rounded-lg group">
+
+          {/* Danh mục 4 */}
+          <div className="relative aspect-[4/3] sm:aspect-square overflow-hidden rounded-2xl group cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-500">
             <Image
-              src="https://kinhmatlily.com/images/home/z5518368914193_d76e1cfd8720e2fb1a585449efd32a13.jpg"
-              alt="Danh mục sản phẩm 4"
+              src="/images/4.jpg"
+              alt="Tròng Kính Cận"
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90" />
+            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-10 transition-transform duration-500 group-hover:-translate-y-2">
+              <h3 className="text-white text-2xl md:text-3xl font-bold tracking-wide drop-shadow-lg uppercase">
+                Phụ Kiện Kính
+              </h3>
+              <div className="w-12 h-1.5 bg-yellow-400 mt-3 rounded-full transform origin-left transition-all duration-300 group-hover:w-24 shadow-sm" />
+            </div>
           </div>
         </div>
       </div>
