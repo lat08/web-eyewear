@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Footer from './components/Footer';
+import Header from './components/Header';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,21 +10,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Kính Lily - Kính Mắt Chính Hãng, Kính Râm, Kính Trẻ Em",
-  description: "Chuyên cung cấp kính mắt chính hãng, kính râm cao cấp, kính trẻ em với chất lượng đảm bảo. Miễn phí đo mắt, đổi trả 30 ngày, giao hàng toàn quốc.",
-  keywords: "kính mắt, kính râm, kính cận, kính trẻ em, kính thời trang, rayban, oakley, gucci, tom ford",
+  title: "Kilala Eye - Tròng Kính Cận, Lens Chính Hãng, Kính Râm",
+  description: "Chuyên cung cấp tròng kính cận, lens cao cấp, kính râm chính hãng. Đo mắt miễn phí, bảo hành 12 tháng, đổi trả 30 ngày.",
+  keywords: "tròng kính, lens, kính cận, kính râm, đo mắt, lens đổi màu, lens cao cấp, kilala, miaxin, hoya",
   openGraph: {
-    title: "Kính Lily - Kính Mắt Chính Hãng",
-    description: "Chuyên cung cấp kính mắt chính hãng với chất lượng đảm bảo",
+    title: "Kilala Eye - Tròng Kính Chính Hãng",
+    description: "Chuyên cung cấp tròng kính cận, lens cao cấp với chất lượng đảm bảo",
     type: "website",
     locale: "vi_VN",
-    siteName: "Kính Lily",
+    siteName: "Kilala Eye",
   },
   robots: {
     index: true,
     follow: true,
   },
 };
+
+import AuthProvider from "./components/AuthProvider";
+import { CartProvider } from "./context/CartContext";
 
 export default function RootLayout({
   children,
@@ -33,8 +37,13 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={`${inter.variable} antialiased font-sans`}>
-        {children}
-        <Footer />
+        <AuthProvider>
+          <CartProvider>
+            <Header />
+            {children}
+            <Footer />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

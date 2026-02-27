@@ -45,14 +45,27 @@
 :root {
   --background: #ffffff;
   --foreground: #111827;
-  --color-primary: #d97706;
-  --color-primary-hover: #b45309;
+  --color-primary: #0d9488;
+  --color-primary-hover: #0f766e;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* Global cursor pointers for interactive elements */
+button, 
+select, 
+a, 
+label, 
+input[type="submit"], 
+input[type="button"], 
+input[type="checkbox"], 
+input[type="radio"], 
+[role="button"] {
+  cursor: pointer;
 }
 
 /* Custom animations */
@@ -99,6 +112,35 @@ body {
   animation: scaleIn 0.3s ease-out;
 }
 
+/* Swiper Custom Pagination */
+.swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  width: 24px;
+  background: white;
+  border-radius: 4px;
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -111,23 +153,23 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d97706;
+  background: #0d9488;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b45309;
+  background: #0f766e;
 }
 
 /* Selection */
 ::selection {
-  background: #fef3c7;
-  color: #92400e;
+  background: #ccfbf1;
+  color: #134e4a;
 }
 
 /* Focus styles */
 :focus-visible {
-  outline: 2px solid #d97706;
+  outline: 2px solid #0d9488;
   outline-offset: 2px;
 }
 

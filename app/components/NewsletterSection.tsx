@@ -1,64 +1,74 @@
-'use client';
-
 import Image from 'next/image';
+import Link from 'next/link';
+import prisma from '@/lib/prisma';
 
-export default function NewsletterSection() {
+export default async function NewsletterSection() {
+  const collections = await (prisma as any).collection.findMany({
+    take: 4,
+  });
+
   return (
-    <section className="relative w-full overflow-hidden">
-      {/* Top Part: Background Image + Centered Form */}
-      <div className="relative w-full h-[500px] flex items-center justify-center">
+    <section id="contact" style={{ scrollMarginTop: '160px' }} className="relative w-full bg-gradient-to-b from-teal-50 to-white">
+      {/* Top Part: Background + Centered Form */}
+      <div className="relative w-full h-[450px] flex items-center justify-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/bgmo.png"
             alt="Background"
             fill
-            className="object-cover"
+            className="object-cover opacity-30"
             priority
           />
         </div>
 
-        {/* Floating Form Card */}
+        {/* Floating Contact Form Card */}
         <div className="relative z-10 bg-white rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-8 md:p-10 max-w-[550px] w-[90%] mx-auto text-center">
-          <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-3 tracking-wide">
-            ĐĂNG KÝ NGAY, NHẬN CHIẾT KHẤU 50.000Đ
+          <h2 className="text-xl md:text-2xl font-black text-gray-900 mb-3 tracking-wide uppercase">
+            LIÊN HỆ VỚI KILALA EYE
           </h2>
           <p className="text-sm text-gray-600 mb-6 leading-relaxed px-4">
-            Đăng ký ngay bằng địa chỉ email để nhận thông tin ưu đãi lớn nhất từ Lily, đồng thời 
-            nhận ngay một voucher chiết khấu trực tiếp 50.000Đ vào hoá đơn tiếp theo!
+            Bạn có thắc mắc về sản phẩm hoặc cần tư vấn về độ cận? Hãy để lại thông tin, đội ngũ chuyên gia của chúng tôi sẽ liên hệ hỗ trợ bạn ngay lập tức!
           </p>
 
           <form className="space-y-4 px-2 md:px-6">
-            <input
-              type="text"
-              placeholder="Họ và tên"
-              className="w-full px-5 py-3 bg-gray-100 border-none rounded-full text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-shadow"
-            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input
+                type="text"
+                placeholder="Họ và tên"
+                className="w-full px-5 py-3 bg-gray-100 border-none rounded-full text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-shadow"
+              />
+              <input
+                type="tel"
+                placeholder="Số điện thoại"
+                className="w-full px-5 py-3 bg-gray-100 border-none rounded-full text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-shadow"
+              />
+            </div>
             <input
               type="email"
-              placeholder="Email"
-              className="w-full px-5 py-3 bg-gray-100 border-none rounded-full text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-shadow"
+              placeholder="Email của bạn"
+              className="w-full px-5 py-3 bg-gray-100 border-none rounded-full text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-shadow"
             />
-            <input
-              type="tel"
-              placeholder="Số điện thoại"
-              className="w-full px-5 py-3 bg-gray-100 border-none rounded-full text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-shadow"
-            />
+            <textarea
+              placeholder="Lời nhắn của bạn (Ví dụ: Tư vấn độ cận -2.00, tư vấn mẫu lens tự nhiên...)"
+              rows={3}
+              className="w-full px-5 py-3 bg-gray-100 border-none rounded-2xl text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-shadow resize-none"
+            ></textarea>
             <button
               type="button"
-              className="w-full py-3 mt-2 bg-[#fbb040] hover:bg-yellow-500 text-white font-bold text-sm rounded-full transition-colors shadow-md hover:shadow-lg"
+              className="w-full py-3 mt-2 bg-teal-600 hover:bg-teal-700 text-white font-black uppercase tracking-widest text-sm rounded-full transition-all shadow-md hover:shadow-lg active:scale-95"
             >
-              Đăng ký
+              Gửi tin nhắn ngay
             </button>
           </form>
         </div>
       </div>
 
-      {/* Middle Part: Yellow Social Bar */}
-      <div className="w-full bg-[#fbb040] pt-6 pb-20 relative z-0">
+      {/* Middle Part: Teal Social Bar */}
+      <div className="w-full bg-teal-600 pt-6 pb-20 relative z-0">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center md:justify-end gap-5">
-          <span className="text-gray-900 font-bold text-[15px]">
-            Follow chúng mình để cập nhật mẫu kính mới nhất nha
+          <span className="text-white font-bold text-[15px]">
+            Follow chúng mình để cập nhật lens mới nhất nha
           </span>
           <div className="flex items-center gap-3">
             {/* Facebook */}
@@ -73,51 +83,44 @@ export default function NewsletterSection() {
             <a href="#" className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center hover:scale-110 transition-transform shadow-sm">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/></svg>
             </a>
-            {/* Shopee */}
-            <a href="#" className="w-8 h-8 rounded-full bg-[#f53d2d] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-sm flex-col">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.5 7.5c0-1.933 1.567-3.5 3.5-3.5s3.5 1.567 3.5 3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path fillRule="evenodd" clipRule="evenodd" d="M5.5 8.5C5.5 7.9477 5.94772 7.5 6.5 7.5H17.5C18.0523 7.5 18.5 7.9477 18.5 8.5V18.5C18.5 19.6046 17.6046 20.5 16.5 20.5H7.5C6.39543 20.5 5.5 19.6046 5.5 18.5V8.5Z" stroke="currentColor" strokeWidth="2"/>
+            {/* Zalo */}
+            <a href="#" className="w-8 h-8 rounded-full bg-[#0068FF] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-sm">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/>
               </svg>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Bottom Part: White Newsletter Bar Overlapping Yellow Bar */}
+      {/* Bottom Part: Brands Section */}
       <div className="max-w-6xl mx-auto px-4 relative z-10 -mt-10 mb-16">
-        <div className="bg-white rounded-lg shadow-[0_4px_20px_rgb(0,0,0,0.08)] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-gray-100">
-          <div className="flex flex-col whitespace-nowrap">
-            <h3 className="text-xl md:text-2xl font-black text-gray-900 leading-none mb-1 tracking-tight">ĐĂNG KÝ EMAIL</h3>
-            <p className="text-[13px] text-gray-500">Để nhận những ưu đãi hấp dẫn từ Lily</p>
+        <div className="bg-white rounded-lg shadow-[0_4px_20px_rgb(0,0,0,0.08)] p-6 md:p-8">
+          <div className="text-center mb-8">
+            <h3 className="text-xl md:text-2xl font-black text-gray-900 leading-none mb-2 tracking-tight uppercase">CÁC BỘ SƯU TẬP</h3>
+            <p className="text-[13px] text-gray-500">Thiết kế độc đáo, an toàn và đa dạng màu sắc</p>
           </div>
-          
-          <div className="flex-1 w-full max-w-3xl">
-            <form className="flex w-full bg-white border border-gray-200 rounded-md overflow-hidden shadow-sm transition-shadow focus-within:ring-1 focus-within:ring-gray-300">
-              <select className="px-3 md:px-5 py-3 bg-gray-50 border-r border-gray-200 text-[13px] text-gray-600 focus:outline-none min-w-[100px] cursor-pointer">
-                <option>Giới tính</option>
-                <option>Nam</option>
-                <option>Nữ</option>
-              </select>
-              <input
-                type="text"
-                placeholder="Họ và tên"
-                className="flex-1 px-3 md:px-5 py-3 border-r border-gray-200 text-[13px] text-gray-800 focus:outline-none placeholder-gray-400"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className="flex-[1.5] px-3 md:px-5 py-3 text-[13px] text-gray-800 focus:outline-none placeholder-gray-400"
-              />
-              <button
-                type="button"
-                className="bg-[#333333] hover:bg-black text-white px-5 md:px-8 py-3 transition-colors flex flex-col items-center justify-center cursor-pointer"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </button>
-            </form>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {collections.map((col: any, index: number) => {
+              // Dùng ảnh mock nếu không có hoặc lấy theo db
+              const colImage = col.image || `/images/${index % 4 + 1}.jpg`;
+              
+              return (
+              <Link key={col.id} href={`/collections/${col.slug}`} className="flex flex-col items-center group">
+                <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-50 border border-gray-200 group-hover:border-teal-300 transition-colors shadow-sm focus:outline-none">
+                  <Image
+                    src={colImage}
+                    alt={col.name}
+                    fill
+                    className="object-cover p-2 group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <span className="mt-3 text-sm font-semibold text-gray-700 group-hover:text-teal-600 transition-colors text-center line-clamp-1 truncate w-full px-2 object-contain">
+                  {col.name}
+                </span>
+              </Link>
+            )})}
           </div>
         </div>
       </div>

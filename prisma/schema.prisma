@@ -7,9 +7,202 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Todo {
+// -----------------------------------------------------------------------------
+// USER MODEL
+// -----------------------------------------------------------------------------
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  password      String?
+  role          String    @default("USER") // USER, ADMIN
+  image         String?
+  phone         String?
+  address       String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  resetToken       String?   @unique
+  resetTokenExpiry DateTime?
+
+  orders        Order[]
+  reviews       Review[]
+}
+
+// -----------------------------------------------------------------------------
+// PRODUCT MODEL
+// -----------------------------------------------------------------------------
+model Product {
+  id            Int       @id @default(autoincrement())
+  name          String
+  slug          String    @unique
+  price         Float
+  originalPrice Float?
+  stock         Int       @default(0)
+  description   String?
+  collectionId  Int?
+  collection    Collection? @relation(fields: [collectionId], references: [id])
+  productLine   String?   // Dòng sản phẩm (e.g. "Hyaluronic Acid", "Gummy Bear")
+  isFeatured    Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relationships
+  categoryId    Int?
+  category      Category?  @relation(fields: [categoryId], references: [id])
+  images        ProductImage[]
+  attributes    ProductAttribute[]
+  tags          ProductTag[]
+  orderItems    OrderItem[]
+  reviews       Review[]
+}
+
+// -----------------------------------------------------------------------------
+// PRODUCT IMAGE MODEL
+// -----------------------------------------------------------------------------
+model ProductImage {
+  id          Int      @id @default(autoincrement())
+  url         String
+  isMain      Boolean  @default(false)
+  
+  productId   Int
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+// -----------------------------------------------------------------------------
+// PRODUCT ATTRIBUTE MODEL (For things like Dia, BC, Water Content)
+// -----------------------------------------------------------------------------
+model ProductAttribute {
+  id          Int      @id @default(autoincrement())
+  name        String   // e.g., "Độ ngậm nước"
+  value       String   // e.g., "38%"
+
+  productId   Int
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+// -----------------------------------------------------------------------------
+// CATEGORY MODEL
+// -----------------------------------------------------------------------------
+model Category {
+  id          Int       @id @default(autoincrement())
+  name        String    
+  slug        String    @unique
+  image       String?
+  description String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  products    Product[]
+}
+
+// -----------------------------------------------------------------------------
+// COLLECTION MODEL
+// -----------------------------------------------------------------------------
+model Collection {
+  id          Int       @id @default(autoincrement())
+  name        String    
+  slug        String    @unique
+  image       String?
+  description String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  products    Product[]
+}
+
+// -----------------------------------------------------------------------------
+// TAG MODEL
+// -----------------------------------------------------------------------------
+model Tag {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique // e.g., "Nâu", "Best Sellers"
+  slug        String    @unique
+
+  products    ProductTag[]
+}
+
+// Pivot table for many-to-many between Product and Tag
+model ProductTag {
+  productId   Int
+  tagId       Int
+
+  product     Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  tag         Tag       @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([productId, tagId])
+}
+
+// -----------------------------------------------------------------------------
+// ORDER MODEL
+// -----------------------------------------------------------------------------
+model Order {
+  id            String      @id @default(cuid())
+  orderNumber   String      @unique
+  totalAmount   Float
+  status        String      @default("PENDING") // PENDING, PROCESSING, SHIPPED, DELIVERED, CANCELLED
+  paymentMethod String      @default("COD") // COD, BANK_TRANSFER, ONLINE
+  paymentStatus String      @default("UNPAID") // UNPAID, PAID
+  
+  // Shipping info
+  shippingName    String
+  shippingPhone   String
+  shippingAddress String
+  shippingCity    String?
+  
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  userId        String?
+  user          User?       @relation(fields: [userId], references: [id])
+  items         OrderItem[]
+}
+
+// -----------------------------------------------------------------------------
+// ORDER ITEM MODEL
+// -----------------------------------------------------------------------------
+model OrderItem {
+  id          Int      @id @default(autoincrement())
+  quantity    Int
+  price       Float    // Price at the time of purchase
+  leftPower   String?  // Thêm độ cận trái
+  rightPower  String?  // Thêm độ cận phải
+  
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  
+  productId   Int
+  product     Product  @relation(fields: [productId], references: [id])
+}
+
+// -----------------------------------------------------------------------------
+// REVIEW MODEL
+// -----------------------------------------------------------------------------
+model Review {
+  id          Int      @id @default(autoincrement())
+  rating      Int      // 1 to 5
+  comment     String?
+  createdAt   DateTime @default(now())
+  
+  productId   Int
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// -----------------------------------------------------------------------------
+// POST (BLOG) MODEL
+// -----------------------------------------------------------------------------
+model Post {
   id          Int      @id @default(autoincrement())
   title       String
-  completed   Boolean  @default(false)
+  slug        String   @unique
+  excerpt     String?  // Tóm tắt ngắn
+  content     String   // Nội dung HTML hoặc Markdown
+  image       String?  // Ảnh đại diện bài viết
+  category    String?  // Danh mục bài viết (Tin tức, Hướng dẫn, Review...)
+  isPublished Boolean  @default(true)
   createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

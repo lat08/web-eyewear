@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(test -f \"C:/Users/endyy/Downloads/web-eyewear/CLAUDE.md\")"
+    ]
+  }
+}
