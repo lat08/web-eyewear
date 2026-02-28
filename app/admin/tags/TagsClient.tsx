@@ -68,6 +68,15 @@ export default function TagsClient() {
     setCurrentPage(1);
   }, [searchQuery]);
 
+  // ESC key to close modal
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isModalOpen) handleCloseModal();
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [isModalOpen]);
+
   const handleOpenModal = (tag?: Tag) => {
     if (tag) {
       setEditingId(tag.id);

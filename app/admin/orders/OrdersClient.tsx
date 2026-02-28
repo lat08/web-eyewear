@@ -106,6 +106,15 @@ export default function OrdersClient() {
     setCurrentPage(1);
   }, [searchQuery, statusFilter]);
 
+  // ESC key to close modal
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isModalOpen) setIsModalOpen(false);
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [isModalOpen]);
+
   const handleUpdateStatus = async (orderId: string, newStatus: string) => {
     try {
       const res = await fetch(`/api/admin/orders/${orderId}`, {

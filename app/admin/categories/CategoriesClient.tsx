@@ -78,6 +78,15 @@ export default function CategoriesClient() {
     setCurrentPage(1);
   }, [searchQuery]);
 
+  // ESC key to close modal
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isModalOpen) handleCloseModal();
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [isModalOpen]);
+
   const handleOpenModal = (category?: Category) => {
     if (category) {
       setEditingId(category.id);

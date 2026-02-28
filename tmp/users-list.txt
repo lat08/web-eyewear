@@ -1,0 +1,18 @@
+========================================
+  DANH SÁCH TÀI KHOẢN USER - KILALA EYE
+  Mật khẩu mặc định (bcrypt hash):
+  $2b$10$GM0Vh4Iud8wYoZ56PL.YI.g6YGW07kgr40H2Zjkh1soap0LCjQlcK
+========================================
+
+STT | Họ tên                   | Email                         | Mật khẩu
+----|--------------------------|-------------------------------|----------
+ 1  | Nguyễn Thị Mai           | mai.nguyen@gmail.com          | (mặc định)
+ 2  | Trần Văn Hùng            | hung.tran@gmail.com           | (mặc định)
+ 3  | Lê Thị Hồng Nhung        | nhung.le@gmail.com            | (mặc định)
+ 4  | Phạm Minh Tuấn           | tuan.pham@gmail.com           | (mặc định)
+ 5  | Hoàng Thị Lan Anh        | lananh.hoang@gmail.com        | (mặc định)
+ 6  | Vũ Đức Thắng             | thang.vu@gmail.com            | (mặc định)
+ 7  | Đặng Thị Thuỳ Linh       | linh.dang@gmail.com           | (mặc định)
+ 8  | Bùi Quang Hải            | hai.bui@gmail.com             | (mặc định)
+ 9  | Ngô Thị Thanh Hà         | ha.ngo@gmail.com              | (mặc định)
+10  | Đỗ Hoàng Nam             | nam.do@gmail.com              | (mặc định)
