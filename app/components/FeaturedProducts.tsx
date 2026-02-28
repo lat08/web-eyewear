@@ -11,7 +11,12 @@ export default async function FeaturedProducts() {
       images: {
         take: 2
       },
-      collection: true
+      collection: true,
+      reviews: {
+        select: {
+          rating: true
+        }
+      }
     }
   });
 
@@ -66,6 +71,24 @@ export default async function FeaturedProducts() {
                 </div>
 
                 <div className="p-6">
+                  <div className="flex items-center gap-1.5 mb-2">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => {
+                        const totalReviews = product.reviews.length;
+                        const avgRating = totalReviews > 0 
+                          ? product.reviews.reduce((acc: number, r: any) => acc + r.rating, 0) / totalReviews
+                          : 0;
+                        return (
+                          <svg key={i} className={`w-3 h-3 ${i < Math.round(avgRating) ? "fill-amber-400 text-amber-400" : "text-gray-200 fill-gray-200"}`} viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                          </svg>
+                        );
+                      })}
+                    </div>
+                    {product.reviews.length > 0 && (
+                      <span className="text-[10px] text-gray-400 font-bold uppercase tracking-tighter">({product.reviews.length})</span>
+                    )}
+                  </div>
                   <h3 className="text-sm font-bold text-gray-800 mb-2 line-clamp-2 min-h-[40px] group-hover:text-teal-600 transition-colors uppercase tracking-tight">{product.name}</h3>
                   <div className="flex items-center justify-between">
                     <p className="text-teal-600 font-black text-lg">

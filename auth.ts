@@ -37,15 +37,39 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     }),
   ],
   callbacks: {
+    authorized({ request, auth }) {
+      const { pathname } = request.nextUrl;
+      const isAuthenticated = !!auth?.user;
+      
+      console.log("[AUTH DEBUG] Path:", pathname);
+      console.log("[AUTH DEBUG] Auth Object:", JSON.stringify(auth));
+      
+      // Strict protection for admin routes
+      if (pathname.startsWith("/admin")) {
+        // Return true only if authenticated and role is ADMIN
+        return isAuthenticated && (auth?.user as any)?.role === "ADMIN";
+      }
+
+      // Strict protection for user routes
+      const protectedRoutes = ["/profile", "/checkout", "/orders"];
+      const isProtected = protectedRoutes.some((route) => pathname.startsWith(route));
+      
+      if (isProtected) {
+        return isAuthenticated;
+      }
+      return true;
+    },
     async jwt({ token, user }) {
       if (user) {
         token.role = (user as any).role;
+        token.id = user.id;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
         (session.user as any).role = token.role;
+        (session.user as any).id = token.id;
       }
       return session;
     },

@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { User, Package, MapPin, Phone, Mail, ChevronRight, LogOut, Clock, CheckCircle2, Truck, XCircle } from "lucide-react";
 import SignOutButton from "./SignOutButton";
+import EditProfileForm from "./EditProfileForm";
+import ProfileCart from "./ProfileCart";
 
 export default async function ProfilePage() {
   const session = await auth();
@@ -74,42 +76,12 @@ export default async function ProfilePage() {
                   )}
                 </div>
                 <h2 className="text-xl font-black text-gray-900 uppercase tracking-tight">{user.name}</h2>
-                <div className="mt-1 flex items-center justify-center gap-2 text-xs font-bold bg-teal-600 text-white px-3 py-1 rounded-full uppercase tracking-widest">
+                <div className="mt-1 flex items-center justify-center gap-2 text-[10px] font-bold bg-teal-600 text-white px-3 py-1 rounded-full uppercase tracking-widest">
                   Thành viên Kilala
                 </div>
               </div>
 
-              <div className="space-y-4 pt-6 border-t border-gray-50">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-md bg-gray-50 flex items-center justify-center text-gray-400">
-                    <Mail size={18} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Email</p>
-                    <p className="text-sm font-bold text-gray-800">{user.email}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-md bg-gray-50 flex items-center justify-center text-gray-400">
-                    <Phone size={18} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Số điện thoại</p>
-                    <p className="text-sm font-bold text-gray-800">{user.phone || "Chưa cập nhật"}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-md bg-gray-50 flex items-center justify-center text-gray-400">
-                    <MapPin size={18} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Địa chỉ mặc định</p>
-                    <p className="text-sm font-bold text-gray-800">{user.address || "Chưa cập nhật"}</p>
-                  </div>
-                </div>
-              </div>
+              <EditProfileForm user={{ name: user.name, email: user.email, phone: user.phone, address: user.address }} />
 
               <div className="mt-10 pt-6 border-t border-gray-50">
                 <SignOutButton />
@@ -137,6 +109,7 @@ export default async function ProfilePage() {
 
           {/* Main Content - Order History */}
           <div className="lg:col-span-2 space-y-8">
+            <ProfileCart />
             <div className="bg-white p-8 rounded-md shadow-sm border border-gray-100 min-h-[600px]">
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-50">
                 <h2 className="text-xl font-black text-gray-900 uppercase tracking-tight flex items-center gap-3">

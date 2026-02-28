@@ -42,7 +42,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
   const totalReviews = product.reviews.length;
   const avgRating = totalReviews > 0 
     ? (product.reviews.reduce((acc: number, rev: { rating: number }) => acc + rev.rating, 0) / totalReviews).toFixed(1)
-    : "5.0"; // Mặc định nếu chưa có đánh giá
+    : "0.0";
 
   // Định dạng title của breadcrumb
   const breadcrumbItems = [
@@ -130,13 +130,10 @@ export default async function ProductDetailPage({ params }: PageProps) {
           {product.description && (
             <div className="mt-12 pt-12 border-t border-gray-100">
               <h2 className="text-xl font-black text-gray-900 mb-6 tracking-tight uppercase border-l-4 border-teal-600 pl-4">Mô tả sản phẩm</h2>
-              <div className="prose max-w-none text-gray-600 space-y-4">
-                {product.description.split(' | ').map((line: string, idx: number) => (
-                  <p key={idx} className="leading-relaxed">
-                    {line}
-                  </p>
-                ))}
-              </div>
+              <div 
+                className="prose max-w-none text-gray-700 quill-content"
+                dangerouslySetInnerHTML={{ __html: product.description }}
+              />
             </div>
           )}
 

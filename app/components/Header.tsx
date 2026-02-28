@@ -5,15 +5,18 @@ import Link from "next/link";
 import { Search, ShoppingCart, User, LogOut } from "lucide-react";
 import { useSession, signOut } from "next-auth/react";
 import { useCart } from "@/app/context/CartContext";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
+  const pathname = usePathname();
   const { data: session } = useSession();
   const { totalItems } = useCart();
+
+  if (pathname?.startsWith("/admin")) return null;
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,7 +101,6 @@ export default function Header() {
                       <p className="text-sm font-bold text-gray-800 truncate">{session.user?.name}</p>
                     </div>
                     <Link href="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 font-semibold transition-colors">Tài khoản của tôi</Link>
-                    <Link href="/orders" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 font-semibold transition-colors">Đơn hàng đã mua</Link>
                     <div className="border-t border-gray-100 my-1"></div>
                     <button 
                       onClick={() => signOut()}

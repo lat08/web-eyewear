@@ -2,8 +2,13 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+  const pathname = usePathname();
+  
+  if (pathname?.startsWith("/admin")) return null;
+
   return (
     <footer className="bg-[#fafafa] pt-12 pb-6 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -46,71 +51,43 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Maps */}
-          <div className="flex flex-col md:col-span-1 relative h-[250px] w-full rounded-md overflow-hidden bg-gray-200">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.0858547285517!2d105.7895!3d21.0292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab4b9bbd0a2f%3A0x6d97c6c4125f4a7c!2sLily%20Eyewear!5e0!3m2!1sen!2svn!4v1700000000000!5m2!1sen!2svn"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={false}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 z-0 grayscale opacity-80"
-            ></iframe>
-
-            <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-              <Link href="/stores" className="pointer-events-auto bg-teal-600 hover:bg-teal-700 text-white font-semibold text-[13px] px-6 py-2.5 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
-                Tìm cửa hàng →
-              </Link>
+          {/* Column 2: Products */}
+          <div className="flex flex-col space-y-6">
+            <div>
+              <h3 className="text-gray-900 font-bold text-base mb-4 uppercase tracking-widest">Sản phẩm</h3>
+              <ul className="text-sm text-gray-600 space-y-3">
+                <li><Link href="/products?category=lens-1-ngay" className="hover:text-teal-600 transition-colors block">Lens 1 Ngày</Link></li>
+                <li><Link href="/products?category=lens-1-thang" className="hover:text-teal-600 transition-colors block">Lens 1 Tháng</Link></li>
+                <li><Link href="/products?category=lens-6-thang" className="hover:text-teal-600 transition-colors block">Lens 6 Tháng</Link></li>
+                <li><Link href="/products?category=phu-kien" className="hover:text-teal-600 transition-colors block">Phụ kiện</Link></li>
+                <li><Link href="/products" className="hover:text-teal-600 transition-colors block font-semibold text-teal-700">Xem tất cả sản phẩm →</Link></li>
+              </ul>
             </div>
           </div>
 
-          {/* Column 3: Policies & News */}
-          <div className="flex flex-col space-y-8">
+          {/* Column 3: Policies & Support */}
+          <div className="flex flex-col space-y-6">
             <div>
-              <h3 className="text-gray-900 font-bold text-base mb-4">Các chính sách</h3>
+              <h3 className="text-gray-900 font-bold text-base mb-4 uppercase tracking-widest">Hỗ trợ khách hàng</h3>
               <ul className="text-sm text-gray-600 space-y-3">
-                <li><Link href="/policy/kham-mat" className="hover:text-teal-600 transition-colors block">Khám mắt miễn phí</Link></li>
-                <li><Link href="/warranty" className="hover:text-teal-600 transition-colors block">Bảo hành chính hãng</Link></li>
+                <li><Link href="/warranty" className="hover:text-teal-600 transition-colors block">Chính sách bảo hành</Link></li>
                 <li><Link href="/warranty" className="hover:text-teal-600 transition-colors block">Chính sách đổi trả</Link></li>
-                <li><Link href="/policy/van-chuyen" className="hover:text-teal-600 transition-colors block">Vận chuyển</Link></li>
-                <li><Link href="/policy/thu-cu" className="hover:text-teal-600 transition-colors block">Thu cũ - Đổi mới</Link></li>
-                <li><Link href="/policy/bao-mat" className="hover:text-teal-600 transition-colors block">Chính sách bảo mật</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-gray-900 font-bold text-base mb-4">Tin tức</h3>
-              <ul className="text-sm text-gray-600 space-y-3">
-                <li><Link href="/news/bao-ve-mat" className="hover:text-teal-600 transition-colors block">Bảo vệ mắt</Link></li>
-                <li><Link href="/news/kien-thuc" className="hover:text-teal-600 transition-colors block">Kiến thức</Link></li>
-                <li><Link href="/news/suc-khoe" className="hover:text-teal-600 transition-colors block">Sức khỏe</Link></li>
+                <li><Link href="/#contact" className="hover:text-teal-600 transition-colors block">Giao hàng & Thanh toán</Link></li>
+                <li><Link href="/#contact" className="hover:text-teal-600 transition-colors block">Liên hệ / Tư vấn</Link></li>
               </ul>
             </div>
           </div>
 
-          {/* Column 4: Products & Partner */}
-          <div className="flex flex-col space-y-8">
+          {/* Column 4: Account & Shopping */}
+          <div className="flex flex-col space-y-6">
             <div>
-              <h3 className="text-gray-900 font-bold text-base mb-4">Sản phẩm</h3>
+              <h3 className="text-gray-900 font-bold text-base mb-4 uppercase tracking-widest">Tài khoản của tôi</h3>
               <ul className="text-sm text-gray-600 space-y-3">
-                <li><Link href="/products?category=lens" className="hover:text-teal-600 transition-colors block">Tròng kính cận</Link></li>
-                <li><Link href="/products?category=lens" className="hover:text-teal-600 transition-colors block">Lens đổi màu</Link></li>
-                <li><Link href="/products?category=sunglasses" className="hover:text-teal-600 transition-colors block">Kính râm</Link></li>
-                <li><Link href="/products?category=frames" className="hover:text-teal-600 transition-colors block">Gọng kính</Link></li>
-                <li><Link href="/products?category=accessories" className="hover:text-teal-600 transition-colors block">Phụ kiện</Link></li>
+                <li><Link href="/profile" className="hover:text-teal-600 transition-colors block">Thông tin tài khoản</Link></li>
+                <li><Link href="/profile" className="hover:text-teal-600 transition-colors block">Lịch sử đơn hàng</Link></li>
+                <li><Link href="/profile" className="hover:text-teal-600 transition-colors block">Theo dõi tiến độ giao hàng</Link></li>
+                <li><Link href="/cart" className="hover:text-teal-600 transition-colors block">Giỏ hàng của bạn</Link></li>
               </ul>
-            </div>
-
-            <div>
-              <h3 className="text-gray-900 font-bold text-base mb-3">Hãng lens</h3>
-              <p className="text-sm text-gray-600 mb-2 leading-relaxed">
-                Phân phối chính hãng các thương hiệu lens hàng đầu
-              </p>
-              <Link href="/brands" className="text-[15px] text-teal-600 hover:text-teal-700 transition-colors font-medium">
-                Xem tất cả hãng →
-              </Link>
             </div>
           </div>
 

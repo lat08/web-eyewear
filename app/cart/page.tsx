@@ -4,9 +4,11 @@ import { useCart } from "@/app/context/CartContext";
 import Link from "next/link";
 import Image from "next/image";
 import { Minus, Plus, Trash2, ArrowLeft, ShoppingBag } from "lucide-react";
+import { useSession } from "next-auth/react";
 
 export default function CartPage() {
   const { cart, updateQuantity, removeFromCart, totalPrice, totalItems } = useCart();
+  const { data: session } = useSession();
 
   if (cart.length === 0) {
     return (
@@ -158,11 +160,26 @@ export default function CartPage() {
                 </div>
               </div>
 
-              <button
-                className="w-full py-4 bg-[#111312] text-white rounded-md font-bold uppercase tracking-widest text-sm hover:bg-black transition-all shadow-xl active:scale-[0.98]"
-              >
-                TIẾN HÀNH THANH TOÁN
-              </button>
+              {session?.user ? (
+                <Link
+                  href="/checkout"
+                  className="w-full py-4 bg-[#111312] text-white rounded-md font-bold uppercase tracking-widest text-sm hover:bg-black transition-all shadow-xl active:scale-[0.98] inline-block text-center"
+                >
+                  TIẾN HÀNH THANH TOÁN
+                </Link>
+              ) : (
+                <div className="space-y-3">
+                  <div className="text-center p-3 bg-amber-50 text-amber-600 rounded-md text-xs font-bold uppercase tracking-widest border border-amber-100">
+                    Vui lòng đăng nhập để tiếp tục
+                  </div>
+                  <Link
+                    href="/login?callbackUrl=/checkout"
+                    className="w-full py-4 bg-teal-600 text-white rounded-md font-bold uppercase tracking-widest text-sm hover:bg-teal-700 transition-all shadow-xl active:scale-[0.98] inline-block text-center"
+                  >
+                    ĐĂNG NHẬP NGAY
+                  </Link>
+                </div>
+              )}
 
               <div className="mt-8 space-y-4">
                 <div className="flex items-center gap-3 text-xs text-gray-500 bg-gray-50 p-3 rounded-md border border-gray-100">

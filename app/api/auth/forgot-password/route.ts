@@ -48,9 +48,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json(
       { 
-        message: "Link khôi phục mật khẩu đã được gửi (vui lòng kiểm tra console/log)",
-        // Trả về link luôn để user dễ test trong môi trường dev
-        devLink: resetUrl 
+        message: "Link khôi phục mật khẩu đã được gửi (vui lòng kiểm tra email của bạn)",
       },
       { status: 200 }
     );

@@ -8,7 +8,6 @@ export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const [devLink, setDevLink] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -31,7 +30,6 @@ export default function ForgotPasswordPage() {
       }
 
       setMessage(data.message);
-      if (data.devLink) setDevLink(data.devLink);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -57,15 +55,6 @@ export default function ForgotPasswordPage() {
               <p className="text-sm">{message}</p>
             </div>
             
-            {devLink && (
-              <div className="p-4 bg-amber-50 border border-amber-100 rounded-md">
-                <p className="text-xs font-bold text-amber-700 mb-2 uppercase tracking-wide">Môi trường Dev (Reset Link):</p>
-                <Link href={devLink} className="text-xs text-blue-600 break-all hover:underline">
-                  {devLink}
-                </Link>
-              </div>
-            )}
-
             <Link href="/login" className="flex items-center justify-center gap-2 text-sm font-bold text-teal-600 hover:text-teal-700 transition-colors">
               <ArrowLeft size={16} /> Quay lại đăng nhập
             </Link>
