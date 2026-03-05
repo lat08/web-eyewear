@@ -124,7 +124,7 @@ export default function Header() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Tìm kiếm tròng kính, kính râm..."
+              placeholder="Tìm kiếm lens, kính áp tròng, phụ kiện..."
               className="flex-1 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-teal-600 focus:border-teal-600 font-medium"
               autoFocus
             />
