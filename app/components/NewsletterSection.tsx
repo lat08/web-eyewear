@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import prisma from '@/lib/prisma';
+import NewsletterForm from './NewsletterForm';
 
 export default async function NewsletterSection() {
   const collections = await (prisma as any).collection.findMany({
@@ -31,36 +32,7 @@ export default async function NewsletterSection() {
             Bạn có thắc mắc về sản phẩm hoặc cần tư vấn về độ cận? Hãy để lại thông tin, đội ngũ chuyên gia của chúng tôi sẽ liên hệ hỗ trợ bạn ngay lập tức!
           </p>
 
-          <form className="space-y-4 px-2 md:px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Họ và tên"
-                className="w-full px-5 py-3 bg-gray-100 border-none rounded-full text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-shadow"
-              />
-              <input
-                type="tel"
-                placeholder="Số điện thoại"
-                className="w-full px-5 py-3 bg-gray-100 border-none rounded-full text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-shadow"
-              />
-            </div>
-            <input
-              type="email"
-              placeholder="Email của bạn"
-              className="w-full px-5 py-3 bg-gray-100 border-none rounded-full text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-shadow"
-            />
-            <textarea
-              placeholder="Lời nhắn của bạn (Ví dụ: Tư vấn độ cận -2.00, tư vấn mẫu lens tự nhiên...)"
-              rows={3}
-              className="w-full px-5 py-3 bg-gray-100 border-none rounded-2xl text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-shadow resize-none"
-            ></textarea>
-            <button
-              type="button"
-              className="w-full py-3 mt-2 bg-teal-600 hover:bg-teal-700 text-white font-black uppercase tracking-widest text-sm rounded-full transition-all shadow-md hover:shadow-lg active:scale-95"
-            >
-              Gửi tin nhắn ngay
-            </button>
-          </form>
+          <NewsletterForm />
         </div>
       </div>
 

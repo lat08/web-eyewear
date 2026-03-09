@@ -21,7 +21,16 @@ import Image from "next/image";
 const ReactQuill = dynamic(() => import("react-quill-new"), { ssr: false });
 
 type PostFormProps = {
-  initialData?: any;
+  initialData?: {
+    id: number;
+    title: string;
+    slug: string;
+    category: string | null;
+    excerpt?: string | null;
+    content?: string | null;
+    image?: string | null;
+    isPublished: boolean;
+  };
 };
 
 export default function PostForm({ initialData }: PostFormProps) {
@@ -56,24 +65,16 @@ export default function PostForm({ initialData }: PostFormProps) {
     
     setUploading(true);
     try {
-      const form = new FormData();
-      form.append("files", files[0]);
-      
-      const res = await fetch("/api/admin/upload", {
-        method: "POST",
-        body: form
-      });
-      
-      if (res.ok) {
-        const uploaded = await res.json();
-        if (uploaded.length > 0) {
-          setFormData(prev => ({ ...prev, image: uploaded[0].url }));
-        }
-      }
+      const file = files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData(prev => ({ ...prev, image: reader.result as string }));
+        setUploading(false);
+      };
+      reader.readAsDataURL(file);
     } catch (err) {
       console.error(err);
-      alert("Lỗi tải ảnh!");
-    } finally {
+      alert("Lỗi xử lý ảnh!");
       setUploading(false);
     }
   };
@@ -98,8 +99,9 @@ export default function PostForm({ initialData }: PostFormProps) {
 
       router.push("/admin/posts");
       router.refresh();
-    } catch (error: any) {
-      alert(`Lỗi lưu bài viết: ${error.message}`);
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : String(error);
+      alert(`Lỗi lưu bài viết: ${msg}`);
     } finally {
       setLoading(false);
     }

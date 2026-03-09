@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(test -f \"C:/Users/endyy/Downloads/web-eyewear/CLAUDE.md\")"
+      "Bash(test -f \"C:/Users/endyy/Downloads/web-eyewear/CLAUDE.md\")",
+      "Bash(ls -la \"c:/Users/endyy/Downloads/New folder \\(21\\)/web-eyewear/\")",
+      "Bash(npx prisma generate)",
+      "Bash(npx prisma db push)"
     ]
   }
 }

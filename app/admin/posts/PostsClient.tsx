@@ -268,7 +268,7 @@ export default function PostsClient() {
                     <td className="px-6 py-4 text-right">
                       <div className="flex items-center justify-end gap-1 opacity-20 group-hover:opacity-100 transition-opacity">
                         <Link 
-                          href={`/admin/posts/${post.id}`} 
+                          href={`/admin/posts/${post.id}/edit`} 
                           className="p-2.5 text-blue-600 hover:bg-blue-50 rounded-md transition-all border border-transparent hover:border-blue-100"
                         >
                           <Edit2 size={16} />

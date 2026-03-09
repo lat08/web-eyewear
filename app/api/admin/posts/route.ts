@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
+import { processImageUpload } from "@/lib/upload";
 
 export async function GET(req: Request) {
   try {
@@ -68,9 +69,11 @@ export async function POST(req: Request) {
     const existingSlug = await prisma.post.findUnique({ where: { slug } });
     if (existingSlug) return new NextResponse("Slug already exists", { status: 400 });
 
+    const processedImage = await processImageUpload(image);
+
     const post = await prisma.post.create({
       data: {
-        title, slug, excerpt, content, image, category, 
+        title, slug, excerpt, content, image: processedImage, category, 
         isPublished: isPublished ?? true
       }
     });

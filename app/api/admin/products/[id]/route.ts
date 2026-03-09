@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
+import { processImageUpload } from "@/lib/upload";
 
 export async function DELETE(
   req: Request,
@@ -87,10 +88,10 @@ export async function PUT(
           productLine,
           isFeatured,
           images: {
-            create: images.map((img: any) => ({
-              url: img.url,
+            create: await Promise.all(images.map(async (img: any) => ({
+              url: await processImageUpload(img.url) || "",
               isMain: img.isMain === true || img.isMain === "true" // Handle potential string "true"
-            }))
+            })))
           },
           tags: {
             create: selectedTags.map((tagId: number) => ({

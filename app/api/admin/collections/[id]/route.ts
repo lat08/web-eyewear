@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
+import { processImageUpload } from "@/lib/upload";
 
 export async function PUT(
   req: Request,
@@ -36,9 +37,11 @@ export async function PUT(
       return new NextResponse("Slug already taken", { status: 400 });
     }
 
+    const processedImage = await processImageUpload(image);
+
     const collection = await prisma.collection.update({
       where: { id: collectionId },
-      data: { name, slug, image, description }
+      data: { name, slug, image: processedImage, description }
     });
 
     return NextResponse.json(collection);

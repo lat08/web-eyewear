@@ -16,7 +16,21 @@ type Collection = { id: number; name: string };
 type Tag = { id: number; name: string };
 
 type ProductFormProps = {
-  initialData?: any;
+  initialData?: {
+    id: number;
+    name: string;
+    slug: string;
+    price: number;
+    originalPrice?: number | null;
+    stock: number;
+    description?: string | null;
+    categoryId?: number | null;
+    collectionId?: number | null;
+    productLine?: string | null;
+    isFeatured: boolean;
+    tags?: { tagId: number }[];
+    images?: { url: string; isMain: boolean }[];
+  };
 };
 
 export default function ProductForm({ initialData }: ProductFormProps) {
@@ -109,35 +123,30 @@ export default function ProductForm({ initialData }: ProductFormProps) {
     
     setUploading(true);
     try {
-      const formData = new FormData();
-      for (let i = 0; i < files.length; i++) {
-        formData.append("files", files[i]);
-      }
-      
-      const res = await fetch("/api/admin/upload", {
-        method: "POST",
-        body: formData
+      const promises = Array.from(files).map((file) => {
+        return new Promise<{url: string, isMain: boolean}>((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            resolve({ url: reader.result as string, isMain: false });
+          };
+          reader.readAsDataURL(file);
+        });
       });
       
-      if (res.ok) {
-        const uploaded: { url: string }[] = await res.json();
+      const uploaded = await Promise.all(promises);
+      
+      setImages(prev => {
+        const newImages = [...prev, ...uploaded];
         
-        setImages(prev => {
-          const newImages = [...prev, ...uploaded.map(item => ({ 
-            url: item.url, 
-            isMain: false 
-          }))];
-          
-          // If no image is set as main, set the first one
-          if (newImages.length > 0 && !newImages.some(i => i.isMain)) {
-            newImages[0].isMain = true;
-          }
-          return newImages;
-        });
-      }
+        // If no image is set as main, set the first one
+        if (newImages.length > 0 && !newImages.some(i => i.isMain)) {
+          newImages[0].isMain = true;
+        }
+        return newImages;
+      });
     } catch (err) {
       console.error(err);
-      alert("Lỗi khi tải ảnh lên!");
+      alert("Lỗi xử lý ảnh!");
     } finally {
       setUploading(false);
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -192,8 +201,9 @@ export default function ProductForm({ initialData }: ProductFormProps) {
 
       router.push("/admin/products");
       router.refresh();
-    } catch (error: any) {
-      alert(`Error saving product: ${error.message}`);
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : String(error);
+      alert(`Error saving product: ${msg}`);
     } finally {
       setLoading(false);
     }
@@ -340,7 +350,7 @@ export default function ProductForm({ initialData }: ProductFormProps) {
                 e.preventDefault();
                 const files = e.dataTransfer.files;
                 if (files.length > 0) {
-                  const event = { target: { files } } as any;
+                  const event = { target: { files } } as unknown as React.ChangeEvent<HTMLInputElement>;
                   onFileChange(event);
                 }
               }}

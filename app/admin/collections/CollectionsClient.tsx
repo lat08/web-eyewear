@@ -114,24 +114,16 @@ export default function CollectionsClient() {
     
     setUploading(true);
     try {
-      const form = new FormData();
-      form.append("files", files[0]);
-      
-      const res = await fetch("/api/admin/upload", {
-        method: "POST",
-        body: form
-      });
-      
-      if (res.ok) {
-        const uploaded = await res.json();
-        if (uploaded.length > 0) {
-          setFormData(prev => ({ ...prev, image: uploaded[0].url }));
-        }
-      }
+      const file = files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData(prev => ({ ...prev, image: reader.result as string }));
+        setUploading(false);
+      };
+      reader.readAsDataURL(file);
     } catch (err) {
       console.error(err);
-      alert("Lỗi tải ảnh!");
-    } finally {
+      alert("Lỗi xử lý ảnh!");
       setUploading(false);
     }
   };

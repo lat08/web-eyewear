@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
+import { processImageUpload } from "@/lib/upload";
 
 export async function GET(req: Request) {
   try {
@@ -121,10 +122,10 @@ export async function POST(req: Request) {
         productLine,
         isFeatured,
         images: {
-          create: images.map((img: any) => ({
-            url: img.url,
+          create: await Promise.all(images.map(async (img: any) => ({
+            url: await processImageUpload(img.url) || "",
             isMain: img.isMain === true || img.isMain === "true"
-          }))
+          })))
         },
         tags: {
           create: selectedTags.map((tagId: number) => ({

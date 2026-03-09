@@ -1,0 +1,378 @@
+﻿
+> web-eyewear@0.1.0 lint
+> eslint
+
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\admin\categories\CategoriesClient.tsx
+  75:6  warning  React Hook useEffect has a missing dependency: 'fetchCategories'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\admin\collections\CollectionsClient.tsx
+  75:6  warning  React Hook useEffect has a missing dependency: 'fetchCollections'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\admin\orders\OrdersClient.tsx
+   46:21  error    Unexpected any. Specify a different type                                                                        @typescript-eslint/no-explicit-any
+   55:21  error    Unexpected any. Specify a different type                                                                        @typescript-eslint/no-explicit-any
+  102:6   warning  React Hook useEffect has a missing dependency: 'fetchOrders'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\admin\posts\PostsClient.tsx
+  68:6  warning  React Hook useEffect has a missing dependency: 'fetchPosts'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\admin\posts\[id]\edit\page.tsx
+  12:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\admin\posts\new\page.tsx
+  11:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\admin\products\ProductsClient.tsx
+  12:3  warning  'Filter' is defined but never used                                                                                @typescript-eslint/no-unused-vars
+  16:3  warning  'RefreshCw' is defined but never used                                                                             @typescript-eslint/no-unused-vars
+  20:3  warning  'BarChart3' is defined but never used                                                                             @typescript-eslint/no-unused-vars
+  21:3  warning  'MoreHorizontal' is defined but never used                                                                        @typescript-eslint/no-unused-vars
+  99:6  warning  React Hook useEffect has a missing dependency: 'fetchProducts'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\admin\products\[id]\edit\page.tsx
+  12:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\admin\products\new\page.tsx
+  11:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\admin\reviews\ReviewsClient.tsx
+  61:6  warning  React Hook useEffect has a missing dependency: 'fetchReviews'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\admin\tags\TagsClient.tsx
+  65:6  warning  React Hook useEffect has a missing dependency: 'fetchTags'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\admin\users\UsersClient.tsx
+  65:6  warning  React Hook useEffect has a missing dependency: 'fetchUsers'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\analytics\route.ts
+  8:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\categories\[id]\route.ts
+  12:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  70:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\categories\route.ts
+   9:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  59:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\collections\[id]\route.ts
+  12:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  60:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\collections\route.ts
+   9:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  59:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\orders\[id]\route.ts
+  11:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  47:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  97:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\orders\route.ts
+   8:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  20:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\posts\[id]\route.ts
+   9:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  40:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\posts\route.ts
+   9:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  21:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  61:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\products\[id]\route.ts
+   12:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   39:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   91:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  110:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\products\route.ts
+    9:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   23:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   88:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  125:60  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\reviews\[id]\route.ts
+  8:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\reviews\route.ts
+   8:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  19:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\tags\[id]\route.ts
+  11:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  55:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\tags\route.ts
+   8:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  58:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\upload\route.ts
+  10:36  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  27:14  warning  'err' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\users\[id]\route.ts
+   8:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  36:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\admin\users\route.ts
+  8:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\orders\route.ts
+   85:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  102:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\register\route.ts
+  45:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\reviews\route.ts
+   65:12  warning  'error' is defined but never used         @typescript-eslint/no-unused-vars
+  156:19  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\api\user\profile\route.ts
+  36:12  warning  'error' is defined but never used         @typescript-eslint/no-unused-vars
+  70:19  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\blog\[slug]\page.tsx
+  6:26  warning  'Tag' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\blog\page.tsx
+  5:40  warning  'Tag' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\checkout\page.tsx
+    7:52  warning  'ShoppingBag' is defined but never used                                                                                      @typescript-eslint/no-unused-vars
+   20:10  warning  'orderId' is assigned a value but never used                                                                                 @typescript-eslint/no-unused-vars
+   80:44  error    Unexpected any. Specify a different type                                                                                     @typescript-eslint/no-explicit-any
+   87:46  error    Unexpected any. Specify a different type                                                                                     @typescript-eslint/no-explicit-any
+   96:58  error    Unexpected any. Specify a different type                                                                                     @typescript-eslint/no-explicit-any
+  119:6   warning  React Hook useEffect has missing dependencies: 'cart' and 'replaceCart'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  146:19  error    Unexpected any. Specify a different type                                                                                     @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\collections\[slug]\page.tsx
+   88:12   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  134:42   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  134:96   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  135:56   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  135:121  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  159:43   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  167:65   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\components\BlogSection.tsx
+   5:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  28:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\components\CategorySection.tsx
+   6:39  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  24:38  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  24:43  warning  'index' is defined but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\components\FeaturedProducts.tsx
+   6:31  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  23:9   warning  'categories' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  41:35  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+  79:69  error    Unexpected any. Specify a different type         @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\components\NewsletterSection.tsx
+   7:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  75:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\components\admin\AdminHeader.tsx
+   17:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   88:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   94:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  100:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  106:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  112:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  118:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  213:77  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  214:79  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\components\admin\AdminSidebar.tsx
+  15:3  warning  'Settings' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\components\admin\PostForm.tsx
+  9:12  warning  'ImageIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\components\admin\ProductForm.tsx
+   5:39  warning  'ImageIcon' is defined but never used     @typescript-eslint/no-unused-vars
+  57:46  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\context\CartContext.tsx
+  38:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\context\CartContext.tsx:38:9
+  36 |     if (savedCart) {
+  37 |       try {
+> 38 |         setCart(JSON.parse(savedCart));
+     |         ^^^^^^^ Avoid calling setState() directly within an effect
+  39 |       } catch (e) {
+  40 |         console.error("Failed to parse cart", e);
+  41 |       }  react-hooks/set-state-in-effect
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\forgot-password\page.tsx
+  33:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\login\page.tsx
+  38:14  warning  'err' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\not-found.tsx
+  2:10  warning  'Home' is defined but never used       @typescript-eslint/no-unused-vars
+  2:16  warning  'ArrowLeft' is defined but never used  @typescript-eslint/no-unused-vars
+  2:27  warning  'Search' is defined but never used     @typescript-eslint/no-unused-vars
+  2:35  warning  'Ghost' is defined but never used      @typescript-eslint/no-unused-vars
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\products\[slug]\AddToCartForm.tsx
+   73:52  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+  132:10  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\products\[slug]\AddToCartForm.tsx:132:10
+  130 |       {/* Selectors */}
+  131 |       <div className="grid grid-cols-2 gap-4 mb-6">
+> 132 |         <PowerDropdown
+      |          ^^^^^^^^^^^^^ This component is created during render
+  133 |           label="Tr├íi (Left)"
+  134 |           value={leftPower}
+  135 |           onChange={setLeftPower}
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\products\[slug]\AddToCartForm.tsx:58:25
+   56 |   };
+   57 |
+>  58 |   const PowerDropdown = ({ 
+      |                         ^^^
+>  59 |     label, 
+      | ^^^^^^^^^^^
+>  60 |     value, 
+      ΓÇª
+      | ^^^^^^^^^^^
+> 107 |     </div>
+      | ^^^^^^^^^^^
+> 108 |   );
+      | ^^^^ The component is created during render here
+  109 |
+  110 |   const handleAddToCart = () => {
+  111 |     if (leftPower === "" || rightPower === "") return;  react-hooks/static-components
+  140:10  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\products\[slug]\AddToCartForm.tsx:140:10
+  138 |           containerRef={leftRef}
+  139 |         />
+> 140 |         <PowerDropdown
+      |          ^^^^^^^^^^^^^ This component is created during render
+  141 |           label="Phß║úi (Right)"
+  142 |           value={rightPower}
+  143 |           onChange={setRightPower}
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\products\[slug]\AddToCartForm.tsx:58:25
+   56 |   };
+   57 |
+>  58 |   const PowerDropdown = ({ 
+      |                         ^^^
+>  59 |     label, 
+      | ^^^^^^^^^^^
+>  60 |     value, 
+      ΓÇª
+      | ^^^^^^^^^^^
+> 107 |     </div>
+      | ^^^^^^^^^^^
+> 108 |   );
+      | ^^^^ The component is created during render here
+  109 |
+  110 |   const handleAddToCart = () => {
+  111 |     if (leftPower === "" || rightPower === "") return;                               react-hooks/static-components
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\products\[slug]\ReviewSection.tsx
+   6:8   warning  'Link' is defined but never used          @typescript-eslint/no-unused-vars
+  98:21  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\products\[slug]\page.tsx
+  3:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\products\page.tsx
+   67:12   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  106:42   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  106:95   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  107:56   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  107:120  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  126:43   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\profile\EditProfileForm.tsx
+  51:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\profile\orders\[id]\page.tsx
+  63:59  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  96:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\profile\page.tsx
+    6:25  warning  'MapPin' is defined but never used        @typescript-eslint/no-unused-vars
+    6:33  warning  'Phone' is defined but never used         @typescript-eslint/no-unused-vars
+    6:40  warning  'Mail' is defined but never used          @typescript-eslint/no-unused-vars
+    6:60  warning  'LogOut' is defined but never used        @typescript-eslint/no-unused-vars
+  135:44  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  159:53  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\register\page.tsx
+  55:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\reset-password\page.tsx
+  59:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\app\warranty\page.tsx
+  1:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\auth.ts
+  51:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  65:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  72:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  73:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\fix-params.js
+   1:12  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   2:14  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  13:14  warning  'err' is defined but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\middleware.ts
+  4:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\parse_products.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\prisma\seed-blog.js
+  15:4  error  Parsing error: Expression expected
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\prisma\seed-blog.ts
+  9:13  error  Parsing error: Invalid character
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\prisma\seed.js
+  7:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  8:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\test.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\tmp\seed-blog-run.cjs
+  9:13  error  Parsing error: Invalid character
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\tmp\seed-blog-run.js
+  9:13  error  Parsing error: Invalid character
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\tmp\test-email.js
+  1:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:20  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\endyy\Downloads\New folder (21)\web-eyewear\tmp\test-post.js
+  1:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+Γ£û 154 problems (116 errors, 38 warnings)
+

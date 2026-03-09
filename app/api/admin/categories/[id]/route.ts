@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
+import { processImageUpload } from "@/lib/upload";
 
 export async function PUT(
   req: Request,
@@ -39,6 +40,8 @@ export async function PUT(
       return new NextResponse("Slug already taken", { status: 400 });
     }
 
+    const processedImage = await processImageUpload(image);
+
     const category = await prisma.category.update({
       where: {
         id: categoryId,
@@ -46,7 +49,7 @@ export async function PUT(
       data: {
         name,
         slug,
-        image,
+        image: processedImage,
         description,
       }
     });

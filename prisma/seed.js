@@ -7,8 +7,8 @@
 const Database = require('better-sqlite3');
 const path = require('path');
 
-// Prisma stores the DB in root dev.db
-const DB_PATH = path.resolve(__dirname, '..', 'dev.db');
+// Prisma stores the DB relative to prisma/ folder (DATABASE_URL="file:./dev.db")
+const DB_PATH = path.resolve(__dirname, 'dev.db');
 const db = new Database(DB_PATH);
 
 db.pragma('journal_mode = WAL');

@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const posts = [
@@ -147,7 +147,7 @@ const posts = [
       </div>
     \`,
     image: "https://images.unsplash.com/photo-1542178243-bc0f24cb39bb?q=80&w=1200&auto=format&fit=crop",
-    category: "Review Sản Phẩm",
+    category: "Góc Làm Đẹp",
   }
 ];
 
