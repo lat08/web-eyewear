@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
 import { processImageUpload } from "@/lib/upload";
+import { revalidatePath } from "next/cache";
 
 export async function PUT(
   req: Request,
@@ -44,6 +45,8 @@ export async function PUT(
       data: { name, slug, image: processedImage, description }
     });
 
+    revalidatePath('/', 'layout');
+
     return NextResponse.json(collection);
   } catch (error) {
     console.error("[COLLECTION_PUT]", error);
@@ -70,6 +73,8 @@ export async function DELETE(
     const collection = await prisma.collection.delete({
       where: { id: collectionId }
     });
+
+    revalidatePath('/', 'layout');
 
     return NextResponse.json(collection);
   } catch (error) {

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
+import { revalidatePath } from "next/cache";
 
 export async function GET(req: Request) {
   try {
@@ -76,6 +77,8 @@ export async function POST(req: Request) {
     const tag = await prisma.tag.create({
       data: { name, slug }
     });
+
+    revalidatePath('/', 'layout');
 
     return NextResponse.json(tag);
   } catch (error) {

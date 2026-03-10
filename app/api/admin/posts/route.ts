@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
 import { processImageUpload } from "@/lib/upload";
+import { revalidatePath } from "next/cache";
 
 export async function GET(req: Request) {
   try {
@@ -77,6 +78,8 @@ export async function POST(req: Request) {
         isPublished: isPublished ?? true
       }
     });
+
+    revalidatePath('/', 'layout');
 
     return NextResponse.json(post);
   } catch (error) {

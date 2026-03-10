@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
+import { revalidatePath } from "next/cache";
 
 export async function PUT(
   req: Request,
@@ -39,6 +40,8 @@ export async function PUT(
       data: { name, slug }
     });
 
+    revalidatePath('/', 'layout');
+
     return NextResponse.json(tag);
   } catch (error) {
     console.error("[TAG_PUT]", error);
@@ -63,6 +66,8 @@ export async function DELETE(
     const tag = await prisma.tag.delete({
       where: { id: tagId }
     });
+
+    revalidatePath('/', 'layout');
 
     return NextResponse.json(tag);
   } catch (error) {

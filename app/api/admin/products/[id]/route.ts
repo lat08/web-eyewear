@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
 import { processImageUpload } from "@/lib/upload";
+import { revalidatePath } from "next/cache";
 
 export async function DELETE(
   req: Request,
@@ -22,6 +23,8 @@ export async function DELETE(
     const product = await prisma.product.delete({
       where: { id: productId }
     });
+
+    revalidatePath('/', 'layout');
 
     return NextResponse.json(product);
   } catch (error) {
@@ -105,6 +108,8 @@ export async function PUT(
         }
       });
     });
+
+    revalidatePath('/', 'layout');
 
     return NextResponse.json(result);
   } catch (error: any) {

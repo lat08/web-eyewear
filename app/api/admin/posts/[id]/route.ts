@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
 import { processImageUpload } from "@/lib/upload";
+import { revalidatePath } from "next/cache";
 
 export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
@@ -27,6 +28,8 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
       data: { title, slug, excerpt, content, image: processedImage, category, isPublished }
     });
 
+    revalidatePath('/', 'layout');
+
     return NextResponse.json(post);
   } catch (error) {
     console.error("[ADMIN_POST_PUT]", error);
@@ -44,6 +47,8 @@ export async function DELETE(req: Request, { params }: { params: Promise<{ id: s
     if (isNaN(postId)) return new NextResponse("Invalid ID", { status: 400 });
 
     await prisma.post.delete({ where: { id: postId } });
+
+    revalidatePath('/', 'layout');
 
     return new NextResponse("Deleted", { status: 200 });
   } catch (error) {

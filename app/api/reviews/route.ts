@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
 export async function GET(req: Request) {
   try {
@@ -148,6 +149,8 @@ export async function POST(req: Request) {
         },
       },
     });
+
+    revalidatePath('/', 'layout');
 
     return NextResponse.json(
       { message: "Gửi nhận xét thành công", review },

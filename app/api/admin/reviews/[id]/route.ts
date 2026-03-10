@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
+import { revalidatePath } from "next/cache";
 
 export async function DELETE(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
@@ -12,6 +13,8 @@ export async function DELETE(req: Request, { params }: { params: Promise<{ id: s
     if (isNaN(reviewId)) return new NextResponse("Invalid ID", { status: 400 });
 
     await prisma.review.delete({ where: { id: reviewId } });
+
+    revalidatePath('/', 'layout');
 
     return new NextResponse("Deleted", { status: 200 });
   } catch (error) {

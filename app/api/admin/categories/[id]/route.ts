@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { auth } from "@/auth";
 import { processImageUpload } from "@/lib/upload";
+import { revalidatePath } from "next/cache";
 
 export async function PUT(
   req: Request,
@@ -54,6 +55,8 @@ export async function PUT(
       }
     });
 
+    revalidatePath('/', 'layout');
+
     return NextResponse.json(category);
   } catch (error) {
     console.error("[CATEGORY_PUT]", error);
@@ -82,6 +85,8 @@ export async function DELETE(
         id: categoryId,
       }
     });
+
+    revalidatePath('/', 'layout');
 
     return NextResponse.json(category);
   } catch (error) {
